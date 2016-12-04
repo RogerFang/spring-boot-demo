@@ -19,7 +19,10 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer{  
      */
     @Override
     public void registerStompEndpoints(StompEndpointRegistry stompEndpointRegistry) {
+        // broadcast: 注册一个endpoint
         stompEndpointRegistry.addEndpoint("/endpointRoger").withSockJS();
+        // point2point: 注意一个endpoint
+        stompEndpointRegistry.addEndpoint("/endpointChat").withSockJS();
     }
 
     /**
@@ -31,6 +34,9 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer{  
         //super.configureMessageBroker(registry);
 
         //广播式：服务端有消息时，将消息发送给所有连接了当前endpoint的浏览器
-        registry.enableSimpleBroker("/topic"); // 广播式配置一个"/topic"消息代理
+        // enable a simple memory-based message broker to carry the messages back to the client on destinations prefixed with "/topic".
+        registry.enableSimpleBroker("/topic", "/queue"); // broadcast: "/topic"消息代理; point2point: "/queue"
+        // designates the "/app" prefix for messages that are bound for @MessageMapping-annotated methods. This prefix will be used to define all the message mappings
+        registry.setApplicationDestinationPrefixes("/app");
     }
 }
