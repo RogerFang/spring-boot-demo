@@ -30,6 +30,7 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+        <!--Spring Boot提供的测试依赖-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -83,6 +84,12 @@
             <version>1.9.22</version>
         </dependency>
 
+        <!--实现页面和代码的热部署 或者使用JRebel-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>webjars-locator</artifactId>
@@ -114,6 +121,10 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+                <!--增加如下配置: 当把程序运行注册为Linux的服务, 因而可以通过命令开启、关闭以及保持开机启动等功能-->
+                <configuration>
+                    <executable>true</executable>
+                </configuration>
 			</plugin>
 		</plugins>
 	</build>

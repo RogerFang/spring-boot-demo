@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
@@ -23,7 +22,7 @@ public class IndexController {
 
     @RequestMapping("/")
     public String index(Model model){
-        Person single = new Person("aa", 11);
+        Person single = new Person("aa", 22);
 
         List<Person> people = new ArrayList<>();
         people.add(new Person("xx", 10));
