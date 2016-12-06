@@ -2,7 +2,7 @@ package com.roger.web;
 
 import com.roger.config.AuthorSettings;
 import com.roger.model.Person;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.roger.util.SpringUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,8 +17,8 @@ import java.util.List;
 @Controller
 public class IndexController {
 
-    @Autowired
-    private AuthorSettings authorSettings;
+    // @Autowired
+    // private AuthorSettings authorSettings;
 
     @RequestMapping("/")
     public String index(Model model){
@@ -37,6 +37,6 @@ public class IndexController {
     @RequestMapping("/hello")
     @ResponseBody
     public String hello(){
-        return "Hello, Spring Boot! " + authorSettings;
+        return "Hello, Spring Boot! " + SpringUtil.getBean(AuthorSettings.class);
     }
 }

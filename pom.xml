@@ -25,6 +25,7 @@
 	</properties>
 
 	<dependencies>
+        <!--Web支持的starter pom-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -118,6 +119,7 @@
 
 	<build>
 		<plugins>
+            <!--Spring Boot 编译插件-->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
